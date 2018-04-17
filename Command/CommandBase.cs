@@ -7,7 +7,6 @@ namespace Command
     public abstract class CommandBase
     {
         protected virtual IRequirements Requirements { get; }
-
         protected CommandBase(IRequirements requirements)
         {
             Requirements = requirements;
@@ -25,7 +24,7 @@ namespace Command
         public virtual void DoJob()
         {
             Brain.PreviousCommand = this;
-
+            Requirements.TextToSpeech.Speak(GetRandomAnswer());
         }
 
         public override bool Equals(object obj)

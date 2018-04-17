@@ -21,7 +21,6 @@ namespace Command.EmbededCommands
         public override void DoJob()
         {
             base.DoJob();
-            Requirements.TextToSpeech.Speak(GetRandomAnswer());
             Brain.State = State.Disabled;
         }
         public Disable(IRequirements requirements) : base(requirements)

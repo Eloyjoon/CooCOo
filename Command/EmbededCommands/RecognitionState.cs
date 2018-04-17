@@ -13,7 +13,7 @@ namespace Command.EmbededCommands
         public override List<string> Answers =>
             new List<string>
             {
-                @""
+                @"My State is:"
             };
         public override string OwnerPlugin => "Core";
         public override string Topic => "You asked for the speech recognition state";
@@ -24,10 +24,10 @@ namespace Command.EmbededCommands
             switch (Brain.State)
             {
                 case State.Enabled:
-                    Requirements.TextToSpeech.Speak("My State is Enabled");
+                    Requirements.TextToSpeech.Speak("Enabled");
                     break;
                 case State.Disabled:
-                    Requirements.TextToSpeech.Speak("My State is Disabled");
+                    Requirements.TextToSpeech.Speak("Disabled");
                     break;
                 default:
                     break;

@@ -30,11 +30,12 @@ namespace Greeting
         public override void DoJob()
         {
             base.DoJob();
-            Requirements.TextToSpeech.Speak(GetRandomAnswer());
             
         }
         public Hello(IRequirements requirements) : base(requirements)
         {
         }
+
+
     }
 }

@@ -24,7 +24,6 @@ namespace Greeting
         public override void DoJob()
         {
             base.DoJob();
-            Requirements.TextToSpeech.Speak(GetRandomAnswer());
 
         }
 

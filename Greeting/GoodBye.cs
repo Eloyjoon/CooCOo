@@ -19,7 +19,7 @@ namespace Greeting
         public override List<string> Answers =>
             new List<string>
             {
-                "Goodbye CooCoo"
+                "Goodbye. I shut myself down"
             };
 
         public override string OwnerPlugin => "Greeting";
@@ -28,7 +28,6 @@ namespace Greeting
         public override void DoJob()
         {
             base.DoJob();
-            Requirements.TextToSpeech.Speak("Goodbye. I shut myself down");
         }
 
         public GoodBye(IRequirements requirements) : base(requirements)

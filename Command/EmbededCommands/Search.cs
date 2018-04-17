@@ -21,7 +21,6 @@ namespace Command.EmbededCommands
         public override void DoJob()
         {
             base.DoJob();
-            Requirements.TextToSpeech.Speak(GetRandomAnswer());
         }
         public Search(IRequirements requirements) : base(requirements)
         {

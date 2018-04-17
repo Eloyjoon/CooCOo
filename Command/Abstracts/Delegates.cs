@@ -9,5 +9,4 @@ namespace Command.Abstracts
 {
     public delegate void CommandRecievedHandler(string key);
     public delegate void MessageRecievedHandler(Stream audio, string text);
-
 }

@@ -27,7 +27,6 @@ namespace Greeting
         public override void DoJob()
         {
             base.DoJob();
-            Requirements.TextToSpeech.Speak(GetRandomAnswer());
         }
         public Parisa(IRequirements requirements) : base(requirements)
         {
