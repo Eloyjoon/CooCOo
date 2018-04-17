@@ -25,7 +25,6 @@ namespace CooCooUI
                 Factory.RegisterType<ISpeechRecognition, SpeechRecognition>();
                 Factory.RegisterType<ITelegramBot, Telegram.CooCooBot>();
                 Factory.RegisterType<IModuleLoader, ModuleLoader>();
-
                 
                // var tts=new InjectionParameter(Factory.Resolve<ITextToSpeech>());
                // var speech= new InjectionParameter(Factory.Resolve<SpeechRecognition>());
