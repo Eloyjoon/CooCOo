@@ -8,24 +8,32 @@ namespace CooCooUI
 {
     partial class Program
     {
-        static ICommandProcessor commandProcessor;
-        static ISpeechRecognition speech;
+        private static IUnityContainer _Factory;
+        public static IUnityContainer Factory
+        {
+            get
+            {
+                if (_Factory==null)
+                {
+                    _Factory = new UnityFactory().Factory;
+                }
 
-        public static IUnityContainer Factory=>new UnityFactory().Factory;
+                return _Factory;
+
+            }
+        }
         static void Main(string[] args)
         {
-            Factory.Resolve<IModuleLoader>().LoadModules(Factory.Resolve<IRequirements>());
-            commandProcessor = Factory.Resolve<ICommandProcessor>();
+            var test = Factory.Resolve<IModuleLoader>();
+            test.LoadModules(Factory.Resolve<IRequirements>());
 
+            //singleton
+           
+            Factory.Resolve<ISpeechRecognition>().CommandRecieved += Speech_CommandRecieved;
+            Factory.Resolve<ISpeechRecognition>().StartRecognition();
 
-
-            speech = Factory.Resolve<SpeechRecognition>();
-            speech.CommandRecieved += R_CommandRecieved;
-            speech.StartRecognition();
-
-
-          //  Telegram.CooCooBot cooCooBot = new Telegram.CooCooBot();
-          //  cooCooBot.MessageRecieved += CooCooBot_MessageRecieved;
+            //singleton
+            Factory.Resolve<ITelegramBot>().MessageRecieved += CooCooBot_MessageRecieved;
 
             Console.Read();
 
@@ -33,17 +41,26 @@ namespace CooCooUI
 
         private static void CooCooBot_MessageRecieved(System.IO.Stream audio, string text)
         {
-            speech.StopRecognition();
-            
-            commandProcessor.ProcessCommands(text);
-            speech.StartRecognition();
+            //singleton
+            Factory.Resolve<ISpeechRecognition>().StopRecognition();
+
+            //singleton
+            Factory.Resolve<ICommandProcessor>().ProcessCommands(text);
+
+            //singleton
+            Factory.Resolve<ISpeechRecognition>().StartRecognition();
         }
 
-        private static void R_CommandRecieved(string key)
+        private static void Speech_CommandRecieved(string key)
         {
-            speech.StopRecognition();
-            commandProcessor.ProcessCommands(key);
-            speech.StartRecognition();            
+            //singleton
+            Factory.Resolve<ISpeechRecognition>().StopRecognition();
+
+            //singleton
+            Factory.Resolve<ICommandProcessor>().ProcessCommands(key);
+
+            //singleton
+            Factory.Resolve<ISpeechRecognition>().StartRecognition();            
         }
     }
 }

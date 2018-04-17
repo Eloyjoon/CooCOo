@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace Telegram
 {
-    public class CooCooBot: ITelegramBot
+    public class CooCooBot : ITelegramBot
     {
         Telegram.Bot.TelegramBotClient bot = new Bot.TelegramBotClient("541502195:AAHLKL_xrP1r7N03ODDCEY3tjpjLXcxCSbg");
-
-        public delegate void MessageRecievedHandler(Stream audio, string text);
 
         public event MessageRecievedHandler MessageRecieved;
 

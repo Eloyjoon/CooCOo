@@ -12,7 +12,7 @@ namespace Command.Concrete
 {
     public class ModuleLoader : Abstracts.IModuleLoader
     {
-        private static List<CommandBase> _commandsList;
+        private List<CommandBase> _commandsList;
 
         public IEnumerable<CommandBase> CommandsList
         {

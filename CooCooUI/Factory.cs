@@ -3,9 +3,11 @@ using Command.Abstracts;
 using Command.Concrete;
 using Speech;
 using Speech.TTS;
+using Telegram;
 using Unity;
 using Unity.Injection;
 using Unity.Registration;
+using Unity.Resolution;
 
 namespace CooCooUI
 {
@@ -21,23 +23,12 @@ namespace CooCooUI
 
                 Factory=new UnityContainer();
 
-                Factory.RegisterType<ITextToSpeech, TextToSpeech>();
-                Factory.RegisterType<ISpeechRecognition, SpeechRecognition>();
-                Factory.RegisterType<ITelegramBot, Telegram.CooCooBot>();
-                Factory.RegisterType<IModuleLoader, ModuleLoader>();
-
-                
-               // var tts=new InjectionParameter(Factory.Resolve<ITextToSpeech>());
-               // var speech= new InjectionParameter(Factory.Resolve<SpeechRecognition>());
-                Factory.RegisterType<IRequirements, Requirements>();
-
-                Factory.RegisterType<ICommandProcessor, CommandProcessor>();
-
-
-                
-
-
-
+                Factory.RegisterType<IModuleLoader, ModuleLoader>(new Unity.Lifetime.ContainerControlledLifetimeManager());                
+                Factory.RegisterType<ITextToSpeech, TextToSpeech>(new Unity.Lifetime.ContainerControlledLifetimeManager());
+                Factory.RegisterType<ISpeechRecognition, SpeechRecognition>(new Unity.Lifetime.ContainerControlledLifetimeManager());
+                Factory.RegisterType(typeof(ITelegramBot), typeof(CooCooBot), new Unity.Lifetime.ContainerControlledLifetimeManager());
+                Factory.RegisterType(typeof(IRequirements), typeof(Requirements), new Unity.Lifetime.ContainerControlledLifetimeManager());
+                Factory.RegisterType(typeof(ICommandProcessor), typeof(CommandProcessor), new Unity.Lifetime.ContainerControlledLifetimeManager() ); 
             }
         }
     }

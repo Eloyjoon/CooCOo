@@ -8,6 +8,7 @@ namespace Command.Abstracts
 {
     public interface ITelegramBot
     {
+        event MessageRecievedHandler MessageRecieved;
         void SendMessage();
     }
 }

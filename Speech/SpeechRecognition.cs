@@ -8,20 +8,16 @@ namespace Speech
 {
     public class SpeechRecognition : ISpeechRecognition
     {
-        private ICommandProcessor _CommandProcessor;
-        public ICommandProcessor CommandProcessor => _CommandProcessor;
-
         readonly SpeechRecognitionEngine _speechRecognizer = new SpeechRecognitionEngine();        
         public event CommandRecievedHandler CommandRecieved;
         protected virtual void OnCommandRecieved(string key)
         {
             CommandRecieved?.Invoke(key);
         }
-        public SpeechRecognition(ICommandProcessor commandProcessor)
-        {
-            _CommandProcessor = commandProcessor;
 
-            Grammar grammar = CreateGrammar(CommandProcessor.ModuleLoader.CommandsList);
+        public SpeechRecognition(IModuleLoader moduleLoader)
+        {
+            Grammar grammar = CreateGrammar(moduleLoader);
 
             _speechRecognizer.UnloadAllGrammars();
             _speechRecognizer.LoadGrammar(grammar);
@@ -30,10 +26,11 @@ namespace Speech
             _speechRecognizer.SpeechRecognized += SpeechRecognizer_SpeechRecognized;
         }
 
-        private Grammar CreateGrammar(IEnumerable<CommandBase> commandKys)
+        private Grammar CreateGrammar(IModuleLoader moduleLoader)
         {
             List<string> lstChoices = new List<string>();
-            foreach (var item in CommandProcessor.ModuleLoader.CommandsList)
+            
+            foreach (var item in moduleLoader.CommandsList)
             {
                 lstChoices.AddRange(item.Keys);
             }
