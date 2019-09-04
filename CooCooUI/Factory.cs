@@ -1,8 +1,7 @@
 ﻿using Command;
 using Command.Concrete;
 using CooCoo;
-using Speech;
-using Speech.TTS;
+using Ear;
 using Telegram;
 using Unity;
 using Unity.Injection;
@@ -24,8 +23,8 @@ namespace CooCooUI
                 Factory=new UnityContainer();
 
                 Factory.RegisterType<IModuleLoader, ModuleLoader>(new Unity.Lifetime.ContainerControlledLifetimeManager());                
-                Factory.RegisterType<ITextToSpeech, TextToSpeech>(new Unity.Lifetime.ContainerControlledLifetimeManager());
-                Factory.RegisterType<ISpeechRecognition, SpeechRecognition>(new Unity.Lifetime.ContainerControlledLifetimeManager());
+                Factory.RegisterType<IMouth, Mouth.TextToSpeech>(new Unity.Lifetime.ContainerControlledLifetimeManager());
+                Factory.RegisterType<IEar, Ear.EarConcrete>(new Unity.Lifetime.ContainerControlledLifetimeManager());
                 Factory.RegisterType(typeof(ITelegramBot), typeof(CooCooBot), new Unity.Lifetime.ContainerControlledLifetimeManager());
                 Factory.RegisterType(typeof(IRequirements), typeof(Requirements), new Unity.Lifetime.ContainerControlledLifetimeManager());
                 Factory.RegisterType(typeof(ICommandProcessor), typeof(CommandProcessor), new Unity.Lifetime.ContainerControlledLifetimeManager() ); 

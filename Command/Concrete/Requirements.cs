@@ -9,16 +9,16 @@ namespace Command.Concrete
 {
     public class Requirements : IRequirements
     {
-        private ITextToSpeech _TextToSpeech;
+        private IMouth _TextToSpeech;
         private ITelegramBot _TelegramBot;
 
 
-        public Requirements(ITextToSpeech tts,ITelegramBot telegramBot)
+        public Requirements(IMouth tts,ITelegramBot telegramBot)
         {
             _TextToSpeech = tts;
             _TelegramBot = telegramBot;
         }
         public ITelegramBot TelegramBot => _TelegramBot;
-        public ITextToSpeech TextToSpeech => _TextToSpeech;
+        public IMouth TextToSpeech => _TextToSpeech;
     }
 }

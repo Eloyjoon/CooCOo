@@ -1,6 +1,6 @@
 ﻿namespace CooCoo
 {
-    public interface ITextToSpeech
+    public interface IMouth
     {
         void Speak(string stringToSpeak);
     }

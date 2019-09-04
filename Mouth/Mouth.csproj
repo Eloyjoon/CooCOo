@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5714E44E-9B2B-4471-8A10-9EB339E67DCE}</ProjectGuid>
+    <ProjectGuid>{397CCB9E-13BB-49FF-80E1-F544321E0369}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CooCoo</RootNamespace>
-    <AssemblyName>CooCoo</AssemblyName>
+    <RootNamespace>Mouth</RootNamespace>
+    <AssemblyName>Mouth</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,17 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Brain.cs" />
-    <Compile Include="CommandBase.cs" />
-    <Compile Include="Delegates.cs" />
-    <Compile Include="Enums.cs" />
-    <Compile Include="ICommandProcessor.cs" />
-    <Compile Include="IEar.cs" />
-    <Compile Include="IModuleLoader.cs" />
-    <Compile Include="IRequirements.cs" />
-    <Compile Include="ITelegramBot.cs" />
-    <Compile Include="IMouth.cs" />
+    <Compile Include="MouthConcrete.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CooCoo\CooCoo.csproj">
+      <Project>{5714E44E-9B2B-4471-8A10-9EB339E67DCE}</Project>
+      <Name>CooCoo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

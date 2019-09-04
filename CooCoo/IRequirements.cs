@@ -2,7 +2,7 @@
 {
     public interface IRequirements
     {
-        ITextToSpeech TextToSpeech { get;   }
+        IMouth TextToSpeech { get;   }
         ITelegramBot TelegramBot { get;  }        
 
     }

@@ -87,9 +87,13 @@
       <Project>{5714E44E-9B2B-4471-8A10-9EB339E67DCE}</Project>
       <Name>CooCoo</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Speech\Speech.csproj">
+    <ProjectReference Include="..\Mouth\Mouth.csproj">
+      <Project>{397ccb9e-13bb-49ff-80e1-f544321e0369}</Project>
+      <Name>Mouth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Speech\Ear.csproj">
       <Project>{456b6cd2-93b4-4b99-8b62-39a5e81ddfbc}</Project>
-      <Name>Speech</Name>
+      <Name>Ear</Name>
     </ProjectReference>
     <ProjectReference Include="..\Telegram\Telegram.csproj">
       <Project>{48428ee1-ab5c-411c-9430-218106ddb034}</Project>

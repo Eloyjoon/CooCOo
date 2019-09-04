@@ -27,8 +27,8 @@ namespace CooCooUI
 
             //singleton
            
-            Factory.Resolve<ISpeechRecognition>().CommandRecieved += Speech_CommandRecieved;
-            Factory.Resolve<ISpeechRecognition>().StartRecognition();
+            Factory.Resolve<IEar>().CommandRecieved += Speech_CommandRecieved;
+            Factory.Resolve<IEar>().StartRecognition();
 
             //singleton
             Factory.Resolve<ITelegramBot>().MessageRecieved += CooCooBot_MessageRecieved;
@@ -40,25 +40,25 @@ namespace CooCooUI
         private static void CooCooBot_MessageRecieved(System.IO.Stream audio, string text)
         {
             //singleton
-            Factory.Resolve<ISpeechRecognition>().StopRecognition();
+            Factory.Resolve<IEar>().StopRecognition();
 
             //singleton
             Factory.Resolve<ICommandProcessor>().ProcessCommands(text);
 
             //singleton
-            Factory.Resolve<ISpeechRecognition>().StartRecognition();
+            Factory.Resolve<IEar>().StartRecognition();
         }
 
         private static void Speech_CommandRecieved(string key)
         {
             //singleton
-            Factory.Resolve<ISpeechRecognition>().StopRecognition();
+            Factory.Resolve<IEar>().StopRecognition();
 
             //singleton
             Factory.Resolve<ICommandProcessor>().ProcessCommands(key);
 
             //singleton
-            Factory.Resolve<ISpeechRecognition>().StartRecognition();            
+            Factory.Resolve<IEar>().StartRecognition();            
         }
     }
 }
