@@ -79,6 +79,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Brain\Brain.csproj">
+      <Project>{7e94657f-e003-4aa3-a29c-ad71344b20a2}</Project>
+      <Name>Brain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Command\Command.csproj">
       <Project>{af797602-02a5-44a1-9b67-21457701ff18}</Project>
       <Name>Command</Name>

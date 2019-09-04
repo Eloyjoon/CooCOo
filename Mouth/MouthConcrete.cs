@@ -1,5 +1,6 @@
 ﻿using System.Speech.Synthesis;
 using CooCoo;
+using CooCoo.Parts;
 
 namespace Mouth
 {

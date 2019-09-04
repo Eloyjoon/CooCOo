@@ -41,16 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Brain.cs" />
     <Compile Include="CommandBase.cs" />
     <Compile Include="Delegates.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="Parts\IBody.cs" />
+    <Compile Include="Parts\IBrain.cs" />
     <Compile Include="ICommandProcessor.cs" />
-    <Compile Include="IEar.cs" />
+    <Compile Include="Parts\IEar.cs" />
     <Compile Include="IModuleLoader.cs" />
     <Compile Include="IRequirements.cs" />
     <Compile Include="ITelegramBot.cs" />
-    <Compile Include="IMouth.cs" />
+    <Compile Include="Parts\IMemory.cs" />
+    <Compile Include="Parts\IMouth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

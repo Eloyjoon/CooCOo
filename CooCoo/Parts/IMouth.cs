@@ -1,4 +1,4 @@
-﻿namespace CooCoo
+﻿namespace CooCoo.Parts
 {
     public interface IMouth
     {

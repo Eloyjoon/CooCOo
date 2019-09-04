@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using CooCoo.Parts;
 
 namespace CooCoo
 {
     public abstract class CommandBase
     {
         protected virtual IRequirements Requirements { get; }
+        public IBrain Brain { get;}
         protected CommandBase(IRequirements requirements)
         {
             Requirements = requirements;
@@ -22,7 +24,7 @@ namespace CooCoo
         public abstract string OwnerPlugin { get; }
         public virtual void DoJob()
         {
-            Brain.PreviousCommand = this;
+            Brain.Memory.PreviousCommand = this;
             Requirements.TextToSpeech.Speak(GetRandomAnswer());
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Speech.Recognition;
 using CooCoo;
+using CooCoo.Parts;
 
 namespace Ear
 {

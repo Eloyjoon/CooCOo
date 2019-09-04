@@ -20,10 +20,10 @@ namespace Command.EmbededCommands
         public override void DoJob()
         {
             base.DoJob();
-            if (Brain.PreviousCommand == null)
+            if (Brain.Memory.PreviousCommand == null)
                 Requirements.TextToSpeech.Speak("we have no topic yet");
             else
-                Requirements.TextToSpeech.Speak("the topic is:" + Brain.PreviousCommand.Topic);
+                Requirements.TextToSpeech.Speak("the topic is:" + Brain.Memory.PreviousCommand.Topic);
 
         }
         public ConversationTopic(IRequirements requirements) : base(requirements)
