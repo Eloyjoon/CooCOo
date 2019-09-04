@@ -6,17 +6,17 @@ namespace CooCooUI
 {
     partial class Program
     {
-        private static IUnityContainer _Factory;
+        private static IUnityContainer _factory;
         public static IUnityContainer Factory
         {
             get
             {
-                if (_Factory==null)
+                if (_factory==null)
                 {
-                    _Factory = new UnityFactory().Factory;
+                    _factory = new UnityFactory().Factory;
                 }
 
-                return _Factory;
+                return _factory;
 
             }
         }
