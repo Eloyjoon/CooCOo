@@ -1,5 +1,5 @@
-﻿using Command.Abstracts;
-using System.Speech.Synthesis;
+﻿using System.Speech.Synthesis;
+using CooCoo;
 
 
 namespace Speech.TTS

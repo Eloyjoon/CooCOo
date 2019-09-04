@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Command.Abstracts;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using CooCoo;
 
 namespace Command.Concrete
 {
-    public class ModuleLoader : Abstracts.IModuleLoader
+    public class ModuleLoader : IModuleLoader
     {
         private List<CommandBase> _commandsList;
 

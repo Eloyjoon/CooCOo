@@ -1,10 +1,10 @@
 ﻿using Command;
-using Command.Abstracts;
 using System.Collections.Generic;
+using CooCoo;
 
 namespace Greeting
 {
-    public class Introduce : Command.CommandBase
+    public class Introduce : CommandBase
     {
         public override List<string> Keys =>
             new List<string>

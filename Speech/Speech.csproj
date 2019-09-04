@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Speech</RootNamespace>
     <AssemblyName>Speech</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,6 +53,10 @@
     <ProjectReference Include="..\Command\Command.csproj">
       <Project>{af797602-02a5-44a1-9b67-21457701ff18}</Project>
       <Name>Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CooCoo\CooCoo.csproj">
+      <Project>{5714E44E-9B2B-4471-8A10-9EB339E67DCE}</Project>
+      <Name>CooCoo</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

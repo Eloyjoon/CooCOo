@@ -1,11 +1,11 @@
-﻿using Command.Abstracts;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Command;
 using System;
+using CooCoo;
 
 namespace Greeting
 {
-    public class Die : Command.CommandBase
+    public class Die : CommandBase
     {
         public override List<string> Answers =>
             new List<string>

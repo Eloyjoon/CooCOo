@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Command</RootNamespace>
     <AssemblyName>Command</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,15 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstracts\Delegates.cs" />
-    <Compile Include="Abstracts\IModuleLoader.cs" />
-    <Compile Include="Abstracts\IRequirements.cs" />
-    <Compile Include="Abstracts\ISpeechRecognition.cs" />
-    <Compile Include="Abstracts\ITelegramBot.cs" />
-    <Compile Include="Abstracts\ITextToSpeech.cs" />
-    <Compile Include="Brain.cs" />
     <Compile Include="CommandProcessor.cs" />
-    <Compile Include="CommandBase.cs" />
     <Compile Include="Concrete\ModuleLoader.cs" />
     <Compile Include="Concrete\Requirements.cs" />
     <Compile Include="EmbededCommands\Disable.cs" />
@@ -60,15 +53,19 @@
     <Compile Include="EmbededCommands\RecognitionState.cs" />
     <Compile Include="EmbededCommands\Search.cs" />
     <Compile Include="EmbededCommands\ConversationTopic.cs" />
-    <Compile Include="Abstracts\ICommandProcessor.cs" />
     <Compile Include="PluginManifest.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RuntimeCompiler.cs" />
-    <Compile Include="Enums.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CooCoo\CooCoo.csproj">
+      <Project>{5714e44e-9b2b-4471-8a10-9eb339e67dce}</Project>
+      <Name>CooCoo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
