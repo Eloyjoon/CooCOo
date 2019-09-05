@@ -11,15 +11,12 @@ namespace Brain
         }
 
         public IMemory Memory { get;}
+
         public State State { get; set; }
+
         public void LoadDataIntoMemory()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void LoadModules(IRequirements requirements)
-        {
-            if (_commandsList != null) return;
+                        if (_commandsList != null) return;
 
             _commandsList = new List<CommandBase>();
             LoadEmbededModules(_commandsList, requirements);
@@ -69,6 +66,7 @@ namespace Brain
                 }
             }
         }
+
         private void LoadEmbededModules(List<CommandBase> list, IRequirements requirements)
         {
             list.Add(new EmbededCommands.Disable(requirements));
