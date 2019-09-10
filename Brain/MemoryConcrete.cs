@@ -10,6 +10,16 @@ namespace Brain
 {
     public class MemoryConcrete:IMemory
     {
+        public MemoryConcrete()
+        {
+            if (Commands==null)
+                Commands=new List<CommandBase>();
+
+            if (Plugins == null)
+                Plugins = new List<IPluginManifest>();
+        }
+
+        public List<IPluginManifest> Plugins { get; set; }
         public string Topic { get; set; }
         public CommandBase PreviousCommand { get; set; }
         public List<CommandBase> Commands { get; set; }

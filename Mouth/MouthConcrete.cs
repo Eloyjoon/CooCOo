@@ -4,7 +4,7 @@ using CooCoo.Parts;
 
 namespace Mouth
 {
-    public class TextToSpeech : IMouth
+    public class MouthConcrete : IMouth
     {
         public void Speak(string stringToSpeak)
         {

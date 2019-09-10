@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Command;
-using Command.Concrete;
 using CooCoo;
 using CooCoo.Parts;
+using PluginBase.Concrete;
 using Telegram;
 using Unity;
 using Unity.RegistrationByConvention;
@@ -18,10 +18,7 @@ namespace CooCooUI
         {
             ComposeModel();
 
-            var test = UnityContainer.Resolve<IModuleLoader>();
-            test.LoadModules(UnityContainer.Resolve<IRequirements>());
-
-            //singleton
+            var body = UnityContainer.Resolve<IBody>();
 
             UnityContainer.Resolve<IEar>().CommandRecieved += Speech_CommandRecieved;
             UnityContainer.Resolve<IEar>().StartRecognition();
@@ -30,22 +27,21 @@ namespace CooCooUI
             UnityContainer.Resolve<ITelegramBot>().MessageRecieved += CooCooBot_MessageRecieved;
 
             Console.Read();
-
         }
 
         private static void ComposeModel()
         {
             UnityContainer = new UnityContainer();
-
-            UnityContainer.RegisterType<IModuleLoader, ModuleLoader>(new Unity.Lifetime.ContainerControlledLifetimeManager());
-            UnityContainer.RegisterType<IMouth, Mouth.TextToSpeech>(new Unity.Lifetime.ContainerControlledLifetimeManager());
-            UnityContainer.RegisterType<IEar, Ear.EarConcrete>(new Unity.Lifetime.ContainerControlledLifetimeManager());
+            
             UnityContainer.RegisterType(typeof(ITelegramBot), typeof(CooCooBot), new Unity.Lifetime.ContainerControlledLifetimeManager());
             UnityContainer.RegisterType(typeof(IRequirements), typeof(Requirements), new Unity.Lifetime.ContainerControlledLifetimeManager());
             UnityContainer.RegisterType(typeof(ICommandProcessor), typeof(CommandProcessor), new Unity.Lifetime.ContainerControlledLifetimeManager());
 
-
             UnityContainer.AddNewExtension<Brain.UnityExtension>();
+            UnityContainer.AddNewExtension<Body.UnityExtension>();
+            UnityContainer.AddNewExtension<Ear.UnityExtension>();
+            UnityContainer.AddNewExtension<Mouth.UnityExtension>();
+
         }
 
         private static void CooCooBot_MessageRecieved(System.IO.Stream audio, string text)

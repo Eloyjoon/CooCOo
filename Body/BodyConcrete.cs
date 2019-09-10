@@ -11,9 +11,12 @@ namespace Body
     {
         public BodyConcrete(IBrain brain, IEar ear, IMouth mouth)
         {
-            Brain = brain;
             Ear = ear;
+
             Mouth = mouth;
+
+            Brain = brain;
+            brain.LoadDataIntoMemory();
         }
 
         public IBrain Brain { get; }

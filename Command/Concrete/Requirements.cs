@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CooCoo;
+﻿using CooCoo;
 using CooCoo.Parts;
 
-namespace Command.Concrete
+namespace PluginBase.Concrete
 {
     public class Requirements : IRequirements
     {

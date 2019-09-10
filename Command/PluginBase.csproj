@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{456B6CD2-93B4-4B99-8B62-39A5E81DDFBC}</ProjectGuid>
+    <ProjectGuid>{AF797602-02A5-44A1-9B67-21457701FF18}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ear</RootNamespace>
-    <AssemblyName>Ear</AssemblyName>
+    <RootNamespace>PluginBase</RootNamespace>
+    <AssemblyName>PluginBase</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -36,35 +36,29 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Speech" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.11.1\lib\net46\Unity.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.11.1\lib\net46\Unity.Container.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandProcessor.cs" />
+    <Compile Include="Concrete\Requirements.cs" />
+    <Compile Include="EmbededCommands\Disable.cs" />
+    <Compile Include="EmbededCommands\Enable.cs" />
+    <Compile Include="EmbededCommands\RecognitionState.cs" />
+    <Compile Include="EmbededCommands\Search.cs" />
+    <Compile Include="EmbededCommands\ConversationTopic.cs" />
+    <Compile Include="IPluginManifest.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EarConcrete.cs" />
-    <Compile Include="UnityExtension.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Command\PluginBase.csproj">
-      <Project>{af797602-02a5-44a1-9b67-21457701ff18}</Project>
-      <Name>PluginBase</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CooCoo\CooCoo.csproj">
-      <Project>{5714E44E-9B2B-4471-8A10-9EB339E67DCE}</Project>
+      <Project>{5714e44e-9b2b-4471-8a10-9eb339e67dce}</Project>
       <Name>CooCoo</Name>
     </ProjectReference>
   </ItemGroup>
