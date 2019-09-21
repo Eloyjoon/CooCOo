@@ -15,9 +15,9 @@ namespace Ear
             CommandRecieved?.Invoke(key);
         }
 
-        public EarConcrete(IModuleLoader moduleLoader)
+        public EarConcrete(IBrain brain)
         {
-            Grammar grammar = CreateGrammar(moduleLoader);
+            Grammar grammar = CreateGrammar(brain);
 
             _speechRecognizer.UnloadAllGrammars();
             _speechRecognizer.LoadGrammar(grammar);
@@ -26,11 +26,11 @@ namespace Ear
             _speechRecognizer.SpeechRecognized += SpeechRecognizer_SpeechRecognized;
         }
 
-        private Grammar CreateGrammar(IModuleLoader moduleLoader)
+        private Grammar CreateGrammar(IBrain brain)
         {
             List<string> lstChoices = new List<string>();
             
-            foreach (var item in moduleLoader.CommandsList)
+            foreach (var item in brain.Memory.Commands)
             {
                 lstChoices.AddRange(item.Keys);
             }

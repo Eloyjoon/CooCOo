@@ -55,7 +55,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -87,10 +86,6 @@
     <ProjectReference Include="..\Speech\Ear.csproj">
       <Project>{456b6cd2-93b4-4b99-8b62-39a5e81ddfbc}</Project>
       <Name>Ear</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Telegram\Telegram.csproj">
-      <Project>{48428ee1-ab5c-411c-9430-218106ddb034}</Project>
-      <Name>Telegram</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

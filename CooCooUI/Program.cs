@@ -4,15 +4,13 @@ using Command;
 using CooCoo;
 using CooCoo.Parts;
 using PluginBase.Concrete;
-using Telegram;
 using Unity;
-using Unity.RegistrationByConvention;
 
 namespace CooCooUI
 {
-    partial class Program
+    class Program
     {
-        public static IUnityContainer UnityContainer { get; private set; }
+        public static IUnityContainer UnityContainer { get; set; }
 
         static void Main(string[] args)
         {
@@ -33,15 +31,13 @@ namespace CooCooUI
         {
             UnityContainer = new UnityContainer();
             
-            UnityContainer.RegisterType(typeof(ITelegramBot), typeof(CooCooBot), new Unity.Lifetime.ContainerControlledLifetimeManager());
             UnityContainer.RegisterType(typeof(IRequirements), typeof(Requirements), new Unity.Lifetime.ContainerControlledLifetimeManager());
             UnityContainer.RegisterType(typeof(ICommandProcessor), typeof(CommandProcessor), new Unity.Lifetime.ContainerControlledLifetimeManager());
 
             UnityContainer.AddNewExtension<Brain.UnityExtension>();
-            UnityContainer.AddNewExtension<Body.UnityExtension>();
             UnityContainer.AddNewExtension<Ear.UnityExtension>();
             UnityContainer.AddNewExtension<Mouth.UnityExtension>();
-
+            UnityContainer.AddNewExtension<Body.UnityExtension>();
         }
 
         private static void CooCooBot_MessageRecieved(System.IO.Stream audio, string text)
