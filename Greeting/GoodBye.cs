@@ -1,5 +1,4 @@
-﻿using Command;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CooCoo;
 
 namespace Greeting
@@ -21,17 +20,6 @@ namespace Greeting
             {
                 "Goodbye. I shut myself down"
             };
-
-        public override string OwnerPlugin => "Greeting";
         public override string Topic => "You said goodbye";
-
-        public override void DoJob()
-        {
-            base.DoJob();
-        }
-
-        public GoodBye(IRequirements requirements) : base(requirements)
-        {
-        }
     }
 }

@@ -5,5 +5,6 @@
         IMemory Memory { get; }
         State State { get; set; }
         void LoadDataIntoMemory();
+        string GetAnswer(string command);
     }
 }

@@ -1,5 +1,4 @@
-﻿using Command;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CooCoo;
 
 namespace Greeting
@@ -22,14 +21,6 @@ namespace Greeting
             {
                 @"Parisa is my mom."
             };
-        public override string OwnerPlugin => "Greeting";
         public override string Topic => "Parisa";
-        public override void DoJob()
-        {
-            base.DoJob();
-        }
-        public Parisa(IRequirements requirements) : base(requirements)
-        {
-        }
     }
 }

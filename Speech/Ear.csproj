@@ -59,10 +59,6 @@
     <Compile Include="UnityExtension.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Command\PluginBase.csproj">
-      <Project>{af797602-02a5-44a1-9b67-21457701ff18}</Project>
-      <Name>PluginBase</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CooCoo\CooCoo.csproj">
       <Project>{5714E44E-9B2B-4471-8A10-9EB339E67DCE}</Project>
       <Name>CooCoo</Name>

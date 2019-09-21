@@ -8,7 +8,33 @@ namespace Ear
 {
     public class EarConcrete : IEar
     {
-        readonly SpeechRecognitionEngine _speechRecognizer = new SpeechRecognitionEngine();        
+        private IBrain _brain;
+        readonly SpeechRecognitionEngine _speechRecognizer = new SpeechRecognitionEngine();
+        public void Init()
+        {
+            Grammar grammar = CreateGrammar(_brain);
+
+            _speechRecognizer.UnloadAllGrammars();
+            _speechRecognizer.LoadGrammar(grammar);
+            _speechRecognizer.EndSilenceTimeout = new TimeSpan(0, 0, 0, 1);
+            try
+            {
+                _speechRecognizer.SetInputToDefaultAudioDevice();
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Plz Plugin the mic",e);
+            }
+            _speechRecognizer.SpeechDetected += _speechRecognizer_SpeechDetected;
+            _speechRecognizer.SpeechRecognized += SpeechRecognizer_SpeechRecognized;
+        }
+
+        private void _speechRecognizer_SpeechDetected(object sender, SpeechDetectedEventArgs e)
+        {
+            
+        }
+
         public event CommandRecievedHandler CommandRecieved;
         protected virtual void OnCommandRecieved(string key)
         {
@@ -17,13 +43,7 @@ namespace Ear
 
         public EarConcrete(IBrain brain)
         {
-            Grammar grammar = CreateGrammar(brain);
-
-            _speechRecognizer.UnloadAllGrammars();
-            _speechRecognizer.LoadGrammar(grammar);
-            _speechRecognizer.EndSilenceTimeout = new TimeSpan(0, 0, 0, 1);
-            _speechRecognizer.SetInputToDefaultAudioDevice();
-            _speechRecognizer.SpeechRecognized += SpeechRecognizer_SpeechRecognized;
+            _brain = brain;
         }
 
         private Grammar CreateGrammar(IBrain brain)

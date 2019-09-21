@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using Command;
-using System;
 using CooCoo;
 
 namespace Greeting
@@ -20,12 +18,6 @@ namespace Greeting
                 "Bemir kookoo"                
             };
 
-        public override string OwnerPlugin => "Greeting";
-
         public override string Topic => "My Life";
-
-        public Die(IRequirements requirements) : base(requirements)
-        {
-        }
     }
 }

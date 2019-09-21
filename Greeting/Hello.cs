@@ -1,6 +1,4 @@
-﻿using Command;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CooCoo;
 
 namespace Greeting
@@ -24,18 +22,6 @@ namespace Greeting
                 @"Hello. How are you?",
                 @"Salam."
             };
-        public override string OwnerPlugin => "Greeting";
         public override string Topic => "Hello";
-
-        public override void DoJob()
-        {
-            base.DoJob();
-            
-        }
-        public Hello(IRequirements requirements) : base(requirements)
-        {
-        }
-
-
     }
 }

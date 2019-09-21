@@ -44,13 +44,9 @@
     <Compile Include="CommandBase.cs" />
     <Compile Include="Delegates.cs" />
     <Compile Include="Enums.cs" />
-    <Compile Include="IPluginManifest.cs" />
     <Compile Include="Parts\IBody.cs" />
     <Compile Include="Parts\IBrain.cs" />
-    <Compile Include="ICommandProcessor.cs" />
     <Compile Include="Parts\IEar.cs" />
-    <Compile Include="IRequirements.cs" />
-    <Compile Include="ITelegramBot.cs" />
     <Compile Include="Parts\IMemory.cs" />
     <Compile Include="Parts\IMouth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

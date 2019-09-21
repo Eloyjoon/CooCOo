@@ -1,5 +1,4 @@
-﻿using Command;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CooCoo;
 
 namespace Greeting
@@ -16,19 +15,6 @@ namespace Greeting
             {
                 @"My name is CooCoo. I am a personal assistant robot, Created to become more intelligent. Nice to meet You!"
             };
-
-        public override string OwnerPlugin => "Greeting";
         public override string Topic => "Me";
-
-
-        public override void DoJob()
-        {
-            base.DoJob();
-
-        }
-
-        public Introduce(IRequirements requirements) : base(requirements)
-        {
-        }
     }
 }

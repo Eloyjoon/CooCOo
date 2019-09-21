@@ -6,16 +6,28 @@ namespace Body
     {
         public BodyConcrete(IBrain brain, IEar ear, IMouth mouth)
         {
-            Ear = ear;
-
-            Mouth = mouth;
-
             Brain = brain;
             brain.LoadDataIntoMemory();
+
+            Ear = ear;
+            ear.Init();
+            ear.CommandRecieved += Ear_CommandRecieved;
+            ear.StartRecognition();
+
+            Mouth = mouth;
+        }
+
+        private void Ear_CommandRecieved(string key)
+        {
+            Ear.StopRecognition();
+            var answer=Brain.GetAnswer(key);
+            Mouth.Speak(answer);
+            Ear.StartRecognition();
         }
 
         public IBrain Brain { get; }
         public IEar Ear { get; }
         public IMouth Mouth { get; }
+
     }
 }

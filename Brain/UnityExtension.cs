@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CooCoo.Parts;
+﻿using CooCoo.Parts;
 using Unity;
 using Unity.Extension;
 using Unity.Lifetime;
@@ -16,7 +11,6 @@ namespace Brain
         {
             Container.RegisterType<IBrain, BrainConcrete>();
             Container.RegisterType<IMemory, MemoryConcrete>(new SingletonLifetimeManager());
-
         }
     }
 }

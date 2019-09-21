@@ -8,6 +8,7 @@ namespace Body
     {
         protected override void Initialize()
         {
+
             Container.RegisterType<IBody, BodyConcrete>();
         }
     }

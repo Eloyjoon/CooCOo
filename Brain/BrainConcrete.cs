@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Mime;
 using System.Reflection;
 using System.Windows.Forms;
-using Command;
 using CooCoo;
 using CooCoo.Parts;
 
@@ -44,29 +41,24 @@ namespace Brain
                     //اگر تایپ لود شده متناسب با تایپ مورد نظر ما بود، آنرا ست میکند
                     foreach (var item in types)
                     {
-                        var isManifest = item.BaseType == typeof(IPluginManifest);
-
-                        if (isManifest)
-                        {
-                            var manifest = Activator.CreateInstance(item) as IPluginManifest;
-                            Memory.Plugins.Add(manifest);
-                        }
-                        else
-                        {
-                            var isPlugin = item.BaseType == typeof(CommandBase);
-                            if (!isPlugin) continue;
-                            var instance = Activator.CreateInstance(item) as CommandBase;
-                            Memory.Commands.Add(instance);
-                        }
+                        var isPlugin = item.BaseType == typeof(CommandBase);
+                        if (!isPlugin) continue;
+                        var instance = Activator.CreateInstance(item) as CommandBase;
+                        Memory.Commands.Add(instance);
                     }
 
                 }
             }
         }
 
+        public string GetAnswer(string command)
+        {
+            var commandBase = Memory.Commands.First(a => a.Keys.Contains(command));
+            return commandBase.Answers.First();
+        }
+
         private void ClearMemory()
         {
-            Memory.Plugins.Clear();
             Memory.Commands.Clear();
         }
     }

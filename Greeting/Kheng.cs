@@ -1,5 +1,4 @@
-﻿using Command;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CooCoo;
 
 namespace Greeting
@@ -19,16 +18,6 @@ namespace Greeting
                 "kheylii khengii Kookoo",
                 "cheraa enghaad to kengii KooKoo?"
             };
-
-        public override string OwnerPlugin => "Greeting";
         public override string Topic => "Me";
-        public override void DoJob()
-        {
-            base.DoJob();
-        }
-
-        public Kheng(IRequirements requirements) : base(requirements)
-        {
-        }
     }
 }
