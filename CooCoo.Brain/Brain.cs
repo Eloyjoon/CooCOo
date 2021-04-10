@@ -1,21 +1,21 @@
-﻿using System;
+﻿using CooCoo.Parts;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Windows.Forms;
-using CooCoo;
-using CooCoo.Parts;
+using System.Text;
 
-namespace Brain
+namespace CooCoo.Brain
 {
-    internal class BrainConcrete : IBrain
+    internal class Brain : IBrain
     {
-        public BrainConcrete(IMemory memory)
+        public Brain(IMemory memory)
         {
             Memory = memory;
         }
 
-        public IMemory Memory { get;}
+        public IMemory Memory { get; }
 
         public State State { get; set; }
 
@@ -23,7 +23,7 @@ namespace Brain
         {
             ClearMemory();
 
-            var directories = Directory.GetDirectories(Application.StartupPath + @"\Plugins");
+            var directories = Directory.GetDirectories( @"\Plugins");
 
             foreach (var directory in directories)
             {
