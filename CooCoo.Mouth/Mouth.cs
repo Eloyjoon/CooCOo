@@ -1,10 +1,12 @@
-﻿using System.Speech.Synthesis;
-using CooCoo;
-using CooCoo.Parts;
+﻿using CooCoo.Parts;
+using System;
+using System.Collections.Generic;
+using System.Speech.Synthesis;
+using System.Text;
 
-namespace Mouth
+namespace CooCoo.Mouth
 {
-    public class MouthConcrete : IMouth
+    internal class Mouth : IMouth
     {
         public void Speak(string stringToSpeak)
         {

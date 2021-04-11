@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Unity" Version="5.11.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CooCoo.Body\CooCoo.Body.csproj" />
+    <ProjectReference Include="..\CooCoo.Brain\CooCoo.Brain.csproj" />
+    <ProjectReference Include="..\CooCoo.Ear\CooCoo.Ear.csproj" />
+    <ProjectReference Include="..\CooCoo.Memory\CooCoo.Memory.csproj" />
+    <ProjectReference Include="..\CooCoo.Mouth\CooCoo.Mouth.csproj" />
+  </ItemGroup>
+
+</Project>

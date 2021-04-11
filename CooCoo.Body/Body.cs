@@ -1,10 +1,13 @@
 ﻿using CooCoo.Parts;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Body
+namespace CooCoo.Body
 {
-    internal class BodyConcrete:IBody
+    internal class Body : IBody
     {
-        public BodyConcrete(IBrain brain, IEar ear, IMouth mouth)
+        public Body(IBrain brain, IEar ear, IMouth mouth)
         {
             Brain = brain;
             brain.LoadDataIntoMemory();
@@ -20,7 +23,7 @@ namespace Body
         private void Ear_CommandRecieved(string key)
         {
             Ear.StopRecognition();
-            var answer=Brain.GetAnswer(key);
+            var answer = Brain.GetAnswer(key);
             Mouth.Speak(answer);
             Ear.StartRecognition();
         }
@@ -28,6 +31,5 @@ namespace Body
         public IBrain Brain { get; }
         public IEar Ear { get; }
         public IMouth Mouth { get; }
-
     }
 }

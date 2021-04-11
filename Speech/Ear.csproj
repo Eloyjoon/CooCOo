@@ -56,13 +56,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EarConcrete.cs" />
-    <Compile Include="UnityExtension.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CooCoo\CooCoo.csproj">
-      <Project>{5714E44E-9B2B-4471-8A10-9EB339E67DCE}</Project>
-      <Name>CooCoo</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
